@@ -1,45 +1,22 @@
-public class Maximum {
-    public int findMax(Integer fValue, Integer sValue, Integer tValue) {
+import java.util.Arrays;
 
-        Integer max = fValue;
+public class Maximum <T extends  Comparable<T>> {
 
-        if(sValue.compareTo(max) > 0)
-        {
-            max = sValue;
-        }
-        if(tValue.compareTo(max) >0)
-        {
-            max = tValue;
-        }
-        return max;
-    }
-    public Float findMax(Float fValue, Float sValue, Float tValue) {
+    private T arrayOfValues[];
 
-        Float max = fValue;
-
-        if(sValue.compareTo(max) > 0)
-        {
-            max = sValue;
-        }
-        if(tValue.compareTo(max) >0)
-        {
-            max = tValue;
-        }
-        return max;
+    public Maximum(T[] arrayOfValues) {
+        this.arrayOfValues = arrayOfValues;
     }
 
-    public String findMax( String fValue, String sValue, String tValue) {
+    public T maxValueBWThree() {
+        Arrays.sort(arrayOfValues);
+        T max = arrayOfValues[arrayOfValues.length - 1];
+        printResult(arrayOfValues , max);
+        return max ;
+    }
 
-        String max = fValue;
-
-        if(sValue.compareTo(max) > 0)
-        {
-            max = sValue;
-        }
-        if(tValue.compareTo(max) >0)
-        {
-            max = tValue;
-        }
-        return max;
+    public void printResult(T array[], T max){
+      Arrays.stream(array).forEach(System.out ::println);
+        System.out.println("Maximum Value of an array is" +max );
     }
 }
